@@ -19,3 +19,10 @@ RETURNING *;
 -- name: DeleteAccount :exec
 DELETE FROM accounts
 WHERE id = $1;
+
+-- name: UpdateAccount :one
+UPDATE accounts
+SET
+    balance = $1
+WHERE id = $2
+RETURNING *;
